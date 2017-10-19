@@ -18,7 +18,5 @@ class MenuController
 
     selection = gets.to_i
     puts "You picked #{selection}"
-
   end
-
 end
