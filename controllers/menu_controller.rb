@@ -49,6 +49,20 @@ class MenuController
   end
 
   def create_entry
+    system "clear"
+    puts "New AddressBloc Entry"
+
+    print "Name: "
+    name = gets.chomp
+    print "Phone number: "
+    phone = gets.chomp
+    print "Email: "
+    email = gets.chomp
+
+    address_book.add_entry(name, phone, email)
+
+    system "clear"
+    puts "new entry created"
   end
 
   def search_entries
