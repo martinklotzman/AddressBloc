@@ -99,6 +99,23 @@ class MenuController
     puts "#{entry.name} has been deleted"
   end
 
+  def edit_entry(entry)
+    print "Updated name: "
+    name = gets.chomp
+    print = "Updated phone number: "
+    phone_number = gets.chomp
+    print "Updated email: "
+    email = gets.chomp
+
+    entry.name = name if !name.empty?
+    entry.phone_number = phone_number if !phone_number.empty?
+    entry.email = email if !email.empty?
+    system "clear"
+
+    puts "Updated entry:"
+    puts entry
+  end
+
   def search_entries
   end
 
@@ -134,7 +151,10 @@ class MenuController
 
       when "n"
       when "d"
+        delete_entry(entry)
       when "e"
+        edit_entry(entry)
+        entry_submenu(entry)
       when "m"
         system "clear"
         main_menu
