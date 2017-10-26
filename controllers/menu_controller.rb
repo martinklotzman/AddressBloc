@@ -94,6 +94,11 @@ class MenuController
     puts "new entry created"
   end
 
+  def delete_entry
+    address_book.entries.delete(entry)
+    puts "#{entry.name} has been deleted"
+  end
+
   def search_entries
   end
 
