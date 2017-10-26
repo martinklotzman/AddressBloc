@@ -94,7 +94,7 @@ class MenuController
     puts "new entry created"
   end
 
-  def delete_entry
+  def delete_entry(entry)
     address_book.entries.delete(entry)
     puts "#{entry.name} has been deleted"
   end
@@ -102,7 +102,7 @@ class MenuController
   def edit_entry(entry)
     print "Updated name: "
     name = gets.chomp
-    print = "Updated phone number: "
+    print "Updated phone number: "
     phone_number = gets.chomp
     print "Updated email: "
     email = gets.chomp
@@ -117,6 +117,18 @@ class MenuController
   end
 
   def search_entries
+    print "Search by name: "
+    name = gets.chomp
+
+    match = address_book.binary_search(name)
+    system "clear"
+
+    if match
+      puts match.to_s
+      search_submenu(match)
+    else
+      puts "no match found for #{}"
+    end
   end
 
   def read_csv
